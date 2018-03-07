@@ -1,0 +1,73 @@
+header {
+  text-align: center;
+  padding: 15px 0px;
+}
+
+nav {
+  margin: 15px 0px;
+}
+
+nav menu {
+  width: 30%;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  font-size: 32px;
+  text-decoration: none;
+}
+
+
+hr {
+  color: white;
+  display: block;
+  border-style: inset;
+  border-width: medium;
+}
+
+body {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+
+p {
+  color: white;
+  text-align: justify;
+  font-size: 28px;
+  margin: 30px 15px;
+}
+
+p.ver {
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  padding-left: 20px;
+}
+
+ul li {
+  font-size: 28px;
+  color: white;
+}
+
+.error {
+  color: red;
+}
+
+table.info {
+  border-collapse: collapse;
+  text-align: center;
+  margin: 100px auto;
+  color: white;
+  font-size: 24px;
+  border: 2px solid white;
+}
+
+footer {
+  display: block;
+  color: white;
+  font-size: 32px;
+  text-align: center;
+  padding: 50px 0px;
+}
