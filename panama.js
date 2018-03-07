@@ -2,6 +2,11 @@
 var hotel = "The Pramana Hotel & Resort";
 var bString = hotel.bold();
 
+/*Instead of creating 3 different html files, I put all the paragraph
+content into variables. All these string variables will be shown when
+one of the buttons are clicked.
+*/
+
 // home section
 var p1 = "Discover the peaceful living of Bali’s greeneries at " + bString +
 ". Situated in spacious landscape between tropical fruit and rare trees, this best villa in " +
@@ -92,43 +97,46 @@ Amenities :\
 <li>IDD Telephone</li>\
 <li>Bathrobes & Slipper</li>";
 
+/* book room section
+Input verification:
+- check the input form using 'required' keyword
+- email input uses email input type, it will automatically check for symbol '@'
+and the correct form of email
+- phone input uses number input type so that the user cannot input other than
+numbers
+*/
 // submission verified
 var verifiedStr = "<h2 align='center'>BOOK ROOM</h2>\
 <p class='ver'>Your submission has been succesfully saved!</p>";
 
-function verified() {
-  document.getElementById('content').innerHTML = verifiedStr;
-}
-
-// book room section
-var bookTable = "<form name ='bookForm' method='post' onsubmit='return validateForm()'>\
+var bookTable = "<form name ='bookForm' onsubmit='return validateForm()'>\
   <table class='info' border='1' cellpadding='25'>\
     <tr>\
       <th colspan='2'>BOOK ROOM</th>\
     </tr>\
     <tr>\
       <td>Name</td>\
-      <td><input type='text' name='name'></td>\
+      <td><input type='text' name='name' required></td>\
     </tr>\
     <tr>\
       <td>Email</td>\
-      <td><input type='text' name='email'></td>\
+      <td><input type='email' name='email' required></td>\
     </tr>\
     <tr>\
       <td>Phone</td>\
-      <td><input id='number' type='number' name='phone'></td>\
+      <td><input id='number' type='number' name='phone' required></td>\
     </tr>\
     <tr>\
       <td>Stay In Date</td>\
-      <td><input type='date' name='stayInDate'></td>\
+      <td><input type='date' name='stayInDate' required></td>\
     </tr>\
     <tr>\
       <td>Length of Stay(days)</td>\
-      <td><input type='text' name='lengthOfStay'></td>\
+      <td><input type='text' name='lengthOfStay' required></td>\
     </tr>\
     <tr>\
       <td>Room type</td>\
-      <td><select id='type' name='roomType'>\
+      <td><select id='type' name='roomType' required>\
         <option value='-1'>Select One</option>\
         <option value='0'>Deluxe Room - $274</option>\
         <option value='1'>Deluxe Pool Villa - $438</option>\
@@ -151,7 +159,7 @@ var bookTable = "<form name ='bookForm' method='post' onsubmit='return validateF
   </table>\
 </form>";
 
-// onclick function
+// onclick functions
 function home() {
   document.getElementById("content").innerHTML = p1 + "<br/>" + "<br/>" +
                                      p2 + "<br/>" + "<br/>" +  p3;
@@ -167,52 +175,7 @@ function book() {
   document.getElementById("content").innerHTML = bookTable;
 }
 
-// validating the form
+// text notification upon successful submitting
 function validateForm() {
-  // store all variables
-  var validateName = document.forms['bookForm']['name'].value;
-  var validateEmail = document.forms['bookForm']['email'].value;
-  var validatePhone = document.forms['bookForm']['phone'].value;
-  var validateStay = document.forms['bookForm']['stayInDate'].value;
-  var validateLength = document.forms['bookForm']['lengthOfStay'].value;
-  var temp = document.getElementById('type');
-  var validateRoom = temp.options[temp.selectedIndex].value;
-  var phoneNumber = document.getElementById('number').value;
-  var flag = false;
-
-  // validate for empty value
-  if(flag == false) {
-    if(validateName == '') {
-      alert("Please fill in your name");
-      return false;
-    } else flag = true;
-    if(validateEmail == '') {
-      alert('Please fill in your email');
-      return false;
-    } else flag = true;
-    if(validatePhone == '') {
-      alert('Please fill in your phone');
-      return false;
-    } else flag = true; //{
-      // validate for valid phone number
-      /*if(isNaN(phoneNumber) || phoneNumber < 0) {
-        alert('Phone number is invalid!');
-        return false;
-      }*/
-    //}
-    if(validateStay == '') {
-      alert('Please fill in you stay in date');
-      return false;
-    } else flag = true;
-    if(validateLength == '') {
-      alert('Please fill in your length of stay');
-      return false;
-    } else flag = true;
-    if(validateRoom == -1) {
-      alert('Please select a room type');
-      return false;
-    } else flag = true;
-  } else {
-    document.getElementById('content').innerHTML = verifiedStr;
-  }
+  document.getElementById('content').innerHTML = verifiedStr;
 }
