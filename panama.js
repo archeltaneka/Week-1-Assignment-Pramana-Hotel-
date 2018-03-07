@@ -99,44 +99,41 @@ Amenities :\
 
 /* book room section
 Input verification:
-- check the input form using 'required' keyword
+- check the input form using validateForm() function
 - email input uses email input type, it will automatically check for symbol '@'
 and the correct form of email
-- phone input uses number input type so that the user cannot input other than
-numbers
+- phone will also check for any invalid input such as alphabets
+- Upon successful submission, user will be brought to a new page(success.html)
 */
-// submission verified
-var verifiedStr = "<h2 align='center'>BOOK ROOM</h2>\
-<p class='ver'>Your submission has been succesfully saved!</p>";
 
-var bookTable = "<form name ='bookForm' onsubmit='return validateForm()'>\
+var bookTable = "<form name ='bookForm' action='success.html' onsubmit='return validateForm()'>\
   <table class='info' border='1' cellpadding='25'>\
     <tr>\
       <th colspan='2'>BOOK ROOM</th>\
     </tr>\
     <tr>\
       <td>Name</td>\
-      <td><input type='text' name='name' required></td>\
+      <td><input type='text' name='name'></td>\
     </tr>\
     <tr>\
       <td>Email</td>\
-      <td><input type='email' name='email' required></td>\
+      <td><input type='email' name='email'></td>\
     </tr>\
     <tr>\
       <td>Phone</td>\
-      <td><input id='number' type='number' name='phone' required></td>\
+      <td><input id='number' type='tel' name='phone'></td>\
     </tr>\
     <tr>\
       <td>Stay In Date</td>\
-      <td><input type='date' name='stayInDate' required></td>\
+      <td><input type='date' name='stayInDate'></td>\
     </tr>\
     <tr>\
       <td>Length of Stay(days)</td>\
-      <td><input type='text' name='lengthOfStay' required></td>\
+      <td><input type='text' name='lengthOfStay'></td>\
     </tr>\
     <tr>\
       <td>Room type</td>\
-      <td><select id='type' name='roomType' required>\
+      <td><select id='type' name='roomType'>\
         <option value='-1'>Select One</option>\
         <option value='0'>Deluxe Room - $274</option>\
         <option value='1'>Deluxe Pool Villa - $438</option>\
@@ -175,7 +172,50 @@ function book() {
   document.getElementById("content").innerHTML = bookTable;
 }
 
+function verified() {
+  document.getElementById('content').innerHTML = verifiedStr;
+}
+
 // text notification upon successful submitting
 function validateForm() {
-  document.getElementById('content').innerHTML = verifiedStr;
+  var validateName = document.forms['bookForm']['name'].value;
+  var validateEmail = document.forms['bookForm']['email'].value;
+  var validatePhone = document.forms['bookForm']['phone'].value;
+  var validateStay = document.forms['bookForm']['stayInDate'].value;
+  var validateLength = document.forms['bookForm']['lengthOfStay'].value;
+  var temp = document.getElementById('type');
+  var validateRoom = temp.options[temp.selectedIndex].value;
+  var validatePhone = document.getElementById('number').value;
+  var flag = false;
+
+  if(validateName == '') {
+    alert('Please fill in your name');
+    return false;
+  }
+  if(validateEmail == '') {
+    alert('Please fill in your email');
+    return false;
+  }
+  if(validatePhone == '') {
+    alert('Please fill in your phone');
+    return false;
+  } else {
+    if(isNaN(validatePhone) || validatePhone < 0 || validatePhone.length > 11) {
+      alert('Invalid phone number');
+      return false;
+    }
+  }
+  if(validateStay == '') {
+    alert('Please fill in your stay in date');
+    return false;
+  }
+  if(validateLength == '') {
+    alert('Please fill in your length of stay');
+    return false;
+  }
+  if(validateRoom == -1) {
+    alert('Please select a room type');
+    return false;
+  }
+  return true;
 }
