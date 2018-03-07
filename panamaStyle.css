@@ -55,6 +55,13 @@ ul li {
   color: red;
 }
 
+#picPar {
+  display: block;
+  margin: 100px auto auto auto;
+  width: 500px;
+  height: 350px;
+}
+
 table.info {
   border-collapse: collapse;
   text-align: center;

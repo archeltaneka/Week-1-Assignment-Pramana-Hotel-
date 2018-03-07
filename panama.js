@@ -35,7 +35,8 @@ var header5 = "Business Center";
 var header6 = "Lounge";
 var header7 = "General Facilities";
 
-var p4 = header1.bold() +
+var p4 = "<div><img id='picPar' src='images/yoga.jpg'/></div>" +
+header1.bold() +
 "<br /><br />Positioned on the upper floor incorporate with Radha Spa, it’s a circled floor and coned style grass roof.\
  This place is a holy land with high level vibration, is the best place for yoga and meditation to recharge mind\
   and spirit. Enjoy Morning Free Yoga session by a Balinese Yoga Instructor in a spacious yoga room\
@@ -44,21 +45,30 @@ var p4 = header1.bold() +
 strengthen your body and expand your consciousness using posture, breath work, meditation and relaxation. \
 All guests may join the Balinese activities such us : Balinese Dance Lesson, the coconut leave craft and \
 offering making together with our staff on afternoon time after lunch.\
-<br /><br />" + header2.bold() +
+<br /><br />" +
+
+"<div><img id='picPar' src='images/kumbuh.jpg'/></div>" +
+header2.bold() +
 "<br /><br />KUMBUH is taken from the Banjar next to the resort. \
 The Restaurant is in second floor building incorporate with \
 The Lobby at the first floor. \
 <br />It has 24 seats and an unequalled vantage point to watch \
 the brilliant color of the setting sun. The menu offers you a \
 combination of wonderful Balinese specialties and more familiar Western dishes.\
-<br /><br />" + header3.bold() +
+<br /><br />" +
+
+"<div><img id='picPar' src='images/pool.jpg'/></div>" +
+header3.bold() +
 "<br /><br />An extensive shaped swimming pool is perched in front of the restaurant and\
  lobby area with awesome view over the garden and surrounding nature. Soak in 15 \
  meters long pool having an ice cold beer and our special drink of the day. Unwind \
  or reading books on a daybed while enjoying the serenity. \
 <br /><br />This stunning infinity pool lined with BatuChandi stone, appears to float in \
 its setting. It’s a unique swimmer feeling for swimming around the area.\
-<br /><br />" + header4.bold() +
+<br /><br />" +
+
+"<div><img id='picPar' src='images/spa.jpg'/></div>" +
+header4.bold() +
 "<br /><br />Radha Spa is the for mankind in the life, where “life be confidence” \
 relax to refresh the body and conscience throughout their trip. This is the spa\
  designed to facilitate the fundamental needs for the trip more memorable, where guests \
@@ -66,12 +76,18 @@ relax to refresh the body and conscience throughout their trip. This is the spa\
 <br /><br />Whether sharing your spa experiences with friends or loved one sand yourparents. \
 Radha Spa provide services and helps guests to find their glow and radiant. \
 <br /><br />Find your glow, brighten your mood and enjoy the moment!!\
-<br /><br />" + header5.bold() +
+<br /><br />" +
+
+"<div><img id='picPar' src='images/business.jpg'/></div>" +
+header5.bold() +
 "<br /><br />A tastefully appointed business center incorporate with the lobby area. The Business\
  Centre is provide a social setting for guests to take pleasure for reading, meeting and \
  using our computer with the internet access. There are some books collection by Pramana \
  which can borrow along the stay by contacting our reception.\
-<br /><br />" + header6.bold() +
+<br /><br />" +
+
+"<div><img id='picPar' src='images/lounge.jpg'/></div>" +
+header6.bold() +
 "<br /><br />A tastefully appointed Open Lounge environment is incorporated within the Restaurant, \
 which is elevated slightly higher that the ground level for an added dimension of space and \
 purpose. The Lounge will provide a social setting for guests to take pleasure in afternoon tea \
