@@ -3,8 +3,8 @@ var hotel = "The Pramana Hotel & Resort";
 var bString = hotel.bold();
 
 /*Instead of creating 3 different html files, I put all the paragraph
-content into variables. All these string variables will be shown when
-one of the buttons are clicked.
+content into variables. All these string variables and html tags
+will be shown when one of the buttons are clicked.
 */
 
 // home section
@@ -117,7 +117,7 @@ var bookTable = "<form name ='bookForm' action='success.html' onsubmit='return v
     </tr>\
     <tr>\
       <td>Email</td>\
-      <td><input type='email' name='email'></td>\
+      <td><input type='text' name='email'></td>\
     </tr>\
     <tr>\
       <td>Phone</td>\
@@ -176,8 +176,9 @@ function verified() {
   document.getElementById('content').innerHTML = verifiedStr;
 }
 
-// text notification upon successful submitting
+// function for validate the form
 function validateForm() {
+  // store are the text value to variables
   var validateName = document.forms['bookForm']['name'].value;
   var validateEmail = document.forms['bookForm']['email'].value;
   var validatePhone = document.forms['bookForm']['phone'].value;
@@ -186,7 +187,9 @@ function validateForm() {
   var temp = document.getElementById('type');
   var validateRoom = temp.options[temp.selectedIndex].value;
   var validatePhone = document.getElementById('number').value;
-  var flag = false;
+
+  // regular expresion for validate the email
+  var emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
   if(validateName == '') {
     alert('Please fill in your name');
@@ -195,13 +198,23 @@ function validateForm() {
   if(validateEmail == '') {
     alert('Please fill in your email');
     return false;
+  } else {
+    // if the input email is match with the regex, do nothing
+    if(validateEmail.match(emailFormat)) {}
+    // otherwise, tell the user
+    else {
+      alert("You entered invalid email address");
+      return false;
+    }
   }
   if(validatePhone == '') {
     alert('Please fill in your phone');
     return false;
   } else {
+    // check if phone number has only numbers and no more than 11 numbers
+    // from 0-9
     if(isNaN(validatePhone) || validatePhone < 0 || validatePhone.length > 11) {
-      alert('Invalid phone number');
+      alert('You entered invalid phone number');
       return false;
     }
   }
@@ -212,6 +225,11 @@ function validateForm() {
   if(validateLength == '') {
     alert('Please fill in your length of stay');
     return false;
+  } else {
+    if(isNaN(validateLength) || validateLength <= 0) {
+      alert('Invalid number, please enter number greater than 0');
+      return false;
+    }
   }
   if(validateRoom == -1) {
     alert('Please select a room type');
