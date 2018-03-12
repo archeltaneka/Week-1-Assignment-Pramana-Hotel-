@@ -122,7 +122,15 @@ and the correct form of email
 - Upon successful submission, user will be brought to a new page(success.html)
 */
 
-var bookTable = "<form name ='bookForm' action='success.html' onsubmit='return validateForm()'>\
+var bookTable = "<?php\
+    $dbhost = '127.0.0.1';\
+    $dbuser = 'root';\
+    $dbpass = '';\
+    $dbname = 'pramanahotel';\
+    $table = 'booking';\
+    $conn = new mysqli($dbhost, $dbuser, $dbpass);\
+    ?>\
+<form name ='bookForm' action='action.php' method='post' onsubmit='return validateForm()'>\
   <table class='info' border='1' cellpadding='25'>\
     <tr>\
       <th colspan='2'>BOOK ROOM</th>\
@@ -159,9 +167,9 @@ var bookTable = "<form name ='bookForm' action='success.html' onsubmit='return v
     </tr>\
     <tr>\
       <td>Additional Charge</td>\
-        <td><input type='checkbox' name='Bed'>Extra Bed - $80<br>\
-        <input type='checkbox' name='Shuttle'>Airport Shuttle - $40<br>\
-        <input type='checkbox' name='Tour'>Ubud Tour 1D - $100\
+        <td><input type='checkbox' name='bed' value='Yes'>Extra Bed - $80<br>\
+        <input type='checkbox' name='shuttle' value='Yes'>Airport Shuttle - $40<br>\
+        <input type='checkbox' name='tour' value='Yes'>Ubud Tour 1D - $100\
         </td>\
     </tr>\
     <tr>\
